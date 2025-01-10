@@ -28,18 +28,18 @@ Retrieves the latest data (price, market cap, and 24h change) for a specified cr
 - `coin`: One of `bitcoin`, `ethereum`, or `matic-network`.
 
 #### Sample Request:
-\`\`\`bash
+```bash
 GET http://localhost:3001/stats?coin=bitcoin
-\`\`\`
+```
 
 #### Sample Response:
-\`\`\`json
+```json
 {
   "price": 40000,
   "marketCap": 800000000,
   "24hChange": 3.4
 }
-\`\`\`
+```
 
 ### 2. `/deviation`
 Calculates and returns the standard deviation of the price for the last 100 records of a specified cryptocurrency.
@@ -48,40 +48,40 @@ Calculates and returns the standard deviation of the price for the last 100 reco
 - `coin`: One of `bitcoin`, `ethereum`, or `matic-network`.
 
 #### Sample Request:
-\`\`\`bash
+```bash
 GET http://localhost:3001/deviation?coin=bitcoin
-\`\`\`
+```
 
 #### Sample Response:
-\`\`\`json
+```json
 {
   "deviation": 4082.48
 }
-\`\`\`
+```
 
 ## Setup Instructions
 
 ### 1. Clone the Repository
 Clone this repository to your local machine.
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/crypto-data-fetcher.git
 cd crypto-data-fetcher
-\`\`\`
+```
 
 ### 2. Install Dependencies
 Make sure you have Node.js and MongoDB installed. Run the following command to install the necessary dependencies:
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### 3. Set Up Environment Variables
 Create a `.env` file in the root of the project and add your MongoDB connection string:
 
-\`\`\`env
+```env
 MONGODB_URI=mongodb+srv://<your-mongodb-credentials>
-\`\`\`
+```
 
 Replace `<your-mongodb-credentials>` with your actual MongoDB connection string.
 
@@ -89,9 +89,9 @@ Replace `<your-mongodb-credentials>` with your actual MongoDB connection string.
 Start the server:
 To start the server, run:
 
-\`\`\`bash
+```bash
 node server.js
-\`\`\`
+```
 
 The server will be running on http://localhost:3001. The background job will fetch data every 2 hours, and you can access the API endpoints.
 
@@ -103,15 +103,15 @@ You can test the API endpoints using any API client (e.g., Postman or cURL).
 
 To get the latest data for a coin (e.g., Bitcoin):
 
-\`\`\`bash
+```bash
 GET http://localhost:3001/stats?coin=bitcoin
-\`\`\`
+```
 
 To get the standard deviation of Bitcoin's price for the last 100 records:
 
-\`\`\`bash
+```bash
 GET http://localhost:3001/deviation?coin=bitcoin
-\`\`\`
+```
 
 ### 7. Cron Job
 The background job runs every 2 hours and fetches the data from the CoinGecko API. You can check the job's logs or database to verify it's being executed correctly.
