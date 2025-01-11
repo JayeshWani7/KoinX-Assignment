@@ -11,7 +11,7 @@ console.log("Mongo URI:", process.env.MONGO_URI);
 connectDB();
 
 // Schedule the background job to run every 2 hours
-cron.schedule("0 */2 * * *", async () => {
+cron.schedule("0-59/120 * * * *", async () => {
   try {
     console.log("Fetching cryptocurrency data...");
     await fetchCryptoData();
