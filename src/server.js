@@ -2,13 +2,16 @@ const app = require("./app");
 const connectDB = require("./utils/database"); // Ensure this handles MongoDB connection
 const fetchCryptoData = require("./jobs/fetchCryptoData");
 const cron = require("node-cron");
+const cryptoRoutes = require("./routes/cryptoRoutes"); // Import your new route
 
 require('dotenv').config({path: '../.env'}); // Load environment variables
 const PORT = process.env.PORT || 3001;
 console.log("Mongo URI:", process.env.MONGO_URI);
+app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
+app.use("/api", cryptoRoutes);
 
 // Schedule the background job to run every 2 hours
 cron.schedule("0-59/120 * * * *", async () => {
