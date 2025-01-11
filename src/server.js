@@ -2,7 +2,6 @@ const app = require("./app");
 const connectDB = require("./utils/database"); // Ensure this handles MongoDB connection
 const fetchCryptoData = require("./jobs/fetchCryptoData");
 const cron = require("node-cron");
-
 require('dotenv').config({path: '../.env'}); // Load environment variables
 const PORT = process.env.PORT || 3001;
 console.log("Mongo URI:", process.env.MONGO_URI);
